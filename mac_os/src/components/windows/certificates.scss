@@ -1,0 +1,125 @@
+.cert-folder{
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,130px);
+  gap:20px;
+}
+
+.cert-file{
+  text-align:center;
+  color:white;
+  cursor:pointer;
+  padding:12px;
+  border-radius:10px;
+  transition:all .2s ease;
+  background:rgba(255,255,255,0.08);
+  outline:1px solid rgba(255,255,255,.4);
+}
+
+.cert-file:hover{
+  background-color:rgba(59,130,246,.35);
+}
+
+.cert-file img{
+  width:70px;
+  margin-bottom:8px;
+}
+
+.cert-name{
+  font-size:14px;
+}
+
+.cert-meta{
+  font-size:11px;
+  opacity:.6;
+}
+
+/* preview */
+.cert-preview{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.preview-info{
+  background:#1e1e2e;
+  color:white;
+  padding:10px 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.download-btn{
+  background:#3b82f6;
+  padding:6px 12px;
+  border-radius:6px;
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.cert-frame{
+  flex:1;
+  width:100%;
+  border:none;
+}
+.cert-file{
+  text-align:center;
+  color:white;
+  cursor:pointer;
+  padding:12px;
+  border-radius:12px;
+  transition:all .18s cubic-bezier(.19,1,.22,1);
+  position:relative;
+}
+
+.cert-file:hover{
+  transform:translateY(-6px);
+  background:rgba(255,255,255,0.08);
+}
+
+/* selected like macOS */
+// .cert-file.active{
+//   background:rgba(59,130,246,.35);
+//   outline:1px solid rgba(255,255,255,.4);
+// }
+
+.cert-file img{
+  width:70px;
+  margin-bottom:8px;
+  pointer-events:none;
+}
+
+.cert-name{
+  font-size:14px;
+  margin-bottom:2px;
+}
+
+.cert-meta{
+  font-size:11px;
+  opacity:.6;
+}
+.cert-tooltip{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%) translateY(6px);
+  top:110%;
+  background:#1e1e2e;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:all .18s ease;
+  white-space:nowrap;
+  z-index:50;
+}
+
+/* show below icon (default safe position) */
+.cert-file:hover .cert-tooltip{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+

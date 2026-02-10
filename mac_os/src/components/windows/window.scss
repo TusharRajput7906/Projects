@@ -13,6 +13,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    // .main-content{
+  overflow:visible;
+  position:relative;
+// }
+
 }
 
 *::-webkit-scrollbar{

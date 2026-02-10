@@ -73,10 +73,19 @@ Message:`;
 
       {/* LinkedIn */}
       <div className="dock-item">
-        <img onClick={() => window.open("https://www.linkedin.com/in/tushar-rajput-88a837279/","_blank")} className="icon link" src="/doc_icons/link.svg"/>
+        <img onClick={() => window.open("https://www.linkedin.com/in/tushar-rajput-88a837279/","_blank")} className="icon link" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/250px-LinkedIn_logo_initials.png"/>
         <span className="dock-label">LinkedIn</span>
         <div className="dock-dot"></div>
       </div>
+<div className="dock-item">
+  <img
+    onClick={() => openOnly("certificates")}
+    className="icon folder"
+    src="https://static.vecteezy.com/system/resources/thumbnails/005/911/684/small/business-agreement-icon-certificate-symbol-for-your-web-site-logo-app-ui-design-free-vector.jpg"
+  />
+  <span className="dock-label">Certificates</span>
+  <div className={`dock-dot ${windowState.apps.certificates !== "closed" ? "active" : ""}`}></div>
+</div>
 
       {/* Terminal */}
       <div className="dock-item">
