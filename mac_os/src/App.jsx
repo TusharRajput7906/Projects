@@ -9,11 +9,8 @@ import Cli from "./components/windows/Cli";
 import BootScreen from "./components/BootScreen";
 import Certificates from "./components/windows/Certificates";
 
-
-
 const App = () => {
-const [booting,setBooting]=useState(true);
-
+  const [booting, setBooting] = useState(true);
 
   const [wallpaper, setWallpaper] = useState("/wallpapers/w1.jpg");
   const [menu, setMenu] = useState({ visible: false, x: 0, y: 0 });
@@ -56,56 +53,69 @@ const [booting,setBooting]=useState(true);
       resume: "closed",
       spotify: "closed",
       cli: "closed",
-      certificates:"closed",
-
+      certificates: "closed",
     },
   });
 
   return (
-  <>
-    {booting && <BootScreen onFinish={()=>setBooting(false)} />}
+    <>
+      {booting && <BootScreen onFinish={() => setBooting(false)} />}
 
-    <main
-      className="main_folder"
-      onClick={closeMenu}
-      onContextMenu={handleContextMenu}
-      style={{
-        backgroundImage:`url(${wallpaper})`,
-        backgroundSize:"cover",
-        backgroundPosition:"center"
-      }}
-    >
+      <main
+        className="main_folder"
+        onClick={closeMenu}
+        onContextMenu={handleContextMenu}
+        style={{
+          backgroundImage: `url(${wallpaper})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <Nav />
 
-      <Nav />
+        <All_icons
+          showDock={showDock}
+          windowState={windowState}
+          setWindowState={setWindowState}
+        />
 
-      <All_icons
-        showDock={showDock}
-        windowState={windowState}
-        setWindowState={setWindowState}
-      />
+        {menu.visible && (
+          <div className="context-menu" style={{ top: menu.y, left: menu.x }}>
+            <div onClick={() => setWallpaper("/wallpapers/w1.jpg")}>
+              Mountain
+            </div>
+            <div onClick={() => setWallpaper("/wallpapers/w2.jpg")}>Night</div>
+            <div onClick={() => setWallpaper("/wallpapers/w3.jpg")}>
+              Abstract
+            </div>
+            <div onClick={() => setWallpaper("/wallpapers/w4.jpg")}>Ocean</div>
+          </div>
+        )}
 
-      {menu.visible && (
-        <div className="context-menu" style={{top:menu.y,left:menu.x}}>
-          <div onClick={()=>setWallpaper("/wallpapers/w1.jpg")}>Mountain</div>
-          <div onClick={()=>setWallpaper("/wallpapers/w2.jpg")}>Night</div>
-          <div onClick={()=>setWallpaper("/wallpapers/w3.jpg")}>Abstract</div>
-          <div onClick={()=>setWallpaper("/wallpapers/w4.jpg")}>Ocean</div>
-        </div>
-      )}
-
-      {windowState.active === "github" && <Github windowName="github" setWindowState={setWindowState} />}
-      {windowState.active === "note" && <Note windowName="note" setWindowState={setWindowState} />}
-      {windowState.active === "resume" && <Resume windowName="resume" setWindowState={setWindowState} />}
-      {windowState.active === "spotify" && <Spotify windowName="spotify" setWindowState={setWindowState} />}
-      {windowState.active === "certificates" &&
-  <Certificates windowName="certificates" setWindowState={setWindowState} />
-}
-      {windowState.active === "cli" && <Cli windowName="cli" setWindowState={setWindowState} />}
-
-    </main>
-  </>
-);
-
+        {windowState.active === "github" && (
+          <Github windowName="github" setWindowState={setWindowState} />
+        )}
+        {windowState.active === "note" && (
+          <Note windowName="note" setWindowState={setWindowState} />
+        )}
+        {windowState.active === "resume" && (
+          <Resume windowName="resume" setWindowState={setWindowState} />
+        )}
+        {windowState.active === "spotify" && (
+          <Spotify windowName="spotify" setWindowState={setWindowState} />
+        )}
+        {windowState.active === "certificates" && (
+          <Certificates
+            windowName="certificates"
+            setWindowState={setWindowState}
+          />
+        )}
+        {windowState.active === "cli" && (
+          <Cli windowName="cli" setWindowState={setWindowState} />
+        )}
+      </main>
+    </>
+  );
 };
 
 export default App;

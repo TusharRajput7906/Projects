@@ -1,33 +1,32 @@
-.Window{
-    // width: 56rem;
-    // height: 25rem;
-    height: 100%;
-    background-color: rgb(27, 26, 26);
-    border-radius: 0.4rem;
-    // display: flex;
-    // gap: 0.2rem;
-    overflow: hidden;
-    color: white;
-    // padding: 1rem;
-.main-content{
+.Window {
+  // width: 56rem;
+  // height: 25rem;
+  height: 100%;
+  background-color: rgb(27, 26, 26);
+  border-radius: 0.4rem;
+  // display: flex;
+  // gap: 0.2rem;
+  overflow: hidden;
+  color: white;
+  // padding: 1rem;
+  .main-content {
     height: 100%;
     display: flex;
     flex-direction: column;
     // .main-content{
-  overflow:visible;
-  position:relative;
-// }
+    overflow: visible;
+    position: relative;
+    // }
+  }
 
-}
-
-*::-webkit-scrollbar{
+  *::-webkit-scrollbar {
     height: 8px;
-}
-*::-webkit-scrollbar-thumb{
-    background-color: rgba(168,168,168,0.4);
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(168, 168, 168, 0.4);
     border-radius: 4px;
-}
-.nav{
+  }
+  .nav {
     padding-inline: 0.2rem;
     padding-block: 0.1rem;
     display: flex;
@@ -37,52 +36,52 @@
     align-items: center;
     justify-content: start;
     border-bottom: 1px solid rgb(74, 73, 73);
-    .dots{
-        display: flex;
-        gap: 0.1rem;
-        .dot{
+    .dots {
+      display: flex;
+      gap: 0.2rem;
+      .dot {
         height: 0.8rem;
         width: 0.8rem;
         border-radius: 50%;
-    }
-    .red{
+      }
+      .red {
         background-color: red;
         color: red;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .red:hover{
+      }
+      .red:hover {
         color: black;
-        cursor:context-menu;
-    }
-    .green{
+        cursor: context-menu;
+      }
+      .green {
         background-color: green;
         color: green;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .green:hover{
-        cursor:context-menu;
-    }
-    .yellow{
+      }
+      .green:hover {
+        cursor: context-menu;
+      }
+      .yellow {
         background-color: yellow;
         color: yellow;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .yellow:hover{
+      }
+      .yellow:hover {
         color: black;
-        cursor:context-menu;
+        cursor: context-menu;
+      }
     }
+    .title {
+      color: rgb(153, 151, 151);
     }
-    .title{
-        color: rgb(153, 151, 151);
-    }
-}
-.main-content{
+  }
+  .main-content {
     padding-inline: 0.4rem;
-}
+  }
 }

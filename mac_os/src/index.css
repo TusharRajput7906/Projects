@@ -1,52 +1,54 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html,body,#root{
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
 }
-.main_folder{
+.main_folder {
   height: 100%;
   width: 100%;
   overflow: hidden;
   position: relative;
 }
-.main_folder{
+.main_folder {
   background-image: url("../doc_icons/mac-wallpaper.jpg");
   background-position: center;
   background-size: cover;
 }
-.main_folder{
-  width:100%;
-  height:100%;
-  background-repeat:no-repeat;
-  transition:background-image .35s ease;
+.main_folder {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  transition: background-image 0.35s ease;
 }
 
 /* context menu */
-.context-menu{
-  position:fixed;
-  background:rgba(30,30,40,0.95);
-  backdrop-filter:blur(12px);
-  border-radius:10px;
-  padding:6px;
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  z-index:99999;
-  min-width:160px;
-  color:white;
-  font-size:14px;
+.context-menu {
+  position: fixed;
+  background: rgba(30, 30, 40, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 99999;
+  min-width: 160px;
+  color: white;
+  font-size: 14px;
 }
 
-.context-menu div{
-  padding:6px 12px;
-  border-radius:6px;
-  cursor:pointer;
+.context-menu div {
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.context-menu div:hover{
-  background:rgba(255,255,255,0.12);
+.context-menu div:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
