@@ -8,8 +8,7 @@ import {
 import { fetchTrendingTV, fetchPopularTV, selectTrendingTV, selectPopularTV } from '../store/slices/tvSlice.js';
 import { toggleFavorite, isFavorited, addToHistory, addToHistoryDB } from '../store/slices/favoritesSlice.js';
 import { openTrailer, showToast } from '../store/slices/uiSlice.js';
-import { selectIsAuth } from '../store/slices/authSlice.js';
-import { openAuthModal } from '../store/slices/authSlice.js';
+import { selectIsAuth, openAuthModal } from '../store/slices/authSlice.js';
 import { backdropUrl, posterUrl } from '../config/tmdb.js';
 import MovieRow from '../components/ui/MovieRow.jsx';
 import tmdbApi from '../services/tmdbApi.js';
@@ -18,12 +17,12 @@ export default function Home() {
   const dispatch  = useDispatch();
   const navigate  = useNavigate();
 
-  const trending   = useSelector(selectTrending);
-  const nowPlaying = useSelector(selectNowPlaying);
-  const topRated   = useSelector(selectTopRated);
-  const upcoming   = useSelector(selectUpcoming);
-  const trendingTV = useSelector(selectTrendingTV);
-  const popularTV  = useSelector(selectPopularTV);
+  const trending   = useSelector(selectTrending)   ?? [];
+  const nowPlaying = useSelector(selectNowPlaying)  ?? { results: [], page: 1, totalPages: 0 };
+  const topRated   = useSelector(selectTopRated)    ?? { results: [], page: 1, totalPages: 0 };
+  const upcoming   = useSelector(selectUpcoming)    ?? { results: [], page: 1, totalPages: 0 };
+  const trendingTV = useSelector(selectTrendingTV)  ?? [];
+  const popularTV  = useSelector(selectPopularTV)   ?? { results: [], page: 1, totalPages: 0 };
 
   const [heroIndex, setHeroIndex] = useState(0);
   const heroItems = trending.slice(0, 6);

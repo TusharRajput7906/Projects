@@ -8,6 +8,7 @@ const authRoutes      = require('./routes/auth.routes');
 const favoritesRoutes = require('./routes/favorites.routes');
 const historyRoutes   = require('./routes/history.routes');
 const adminRoutes     = require('./routes/admin.routes');
+const tmdbRoutes      = require('./routes/tmdb.routes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/auth',      authRoutes);
 app.use('/api/favorites', favoritesRoutes);
 app.use('/api/history',   historyRoutes);
 app.use('/api/admin',     adminRoutes);
+app.use('/api/tmdb',      tmdbRoutes);
 
 /* ── Serve React build (production) ─────────────────── */
 const distPath = path.join(__dirname, '..', 'dist');
@@ -46,6 +48,18 @@ app.use((err, _req, res, _next) => {
 /* ── Start ──────────────────────────────────────────── */
 const PORT = process.env.PORT || 5000;
 
-connectDB().then(() => {
-  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-});
+function startServer(retries = 5, delay = 1000) {
+  const server = app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE' && retries > 0) {
+      console.warn(`Port ${PORT} busy, retrying in ${delay}ms... (${retries} attempts left)`);
+      server.close();
+      setTimeout(() => startServer(retries - 1, delay), delay);
+    } else {
+      console.error(`Cannot start server: ${err.message}`);
+      process.exit(1);
+    }
+  });
+}
+
+connectDB().then(() => startServer());

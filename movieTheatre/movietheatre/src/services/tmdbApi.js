@@ -56,7 +56,12 @@ tmdbApi.interceptors.response.use(
     return res;
   },
   (err) => {
-    const msg = err.response?.data?.status_message || err.message || 'TMDB request failed';
+    // Backend proxy forwards TMDB's body directly, so check both field names
+    const msg =
+      err.response?.data?.status_message ||
+      err.response?.data?.message ||
+      err.message ||
+      'TMDB request failed';
     return Promise.reject(new Error(msg));
   }
 );
